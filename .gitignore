@@ -1,0 +1,24 @@
+# Compiled object files, binaries and executables
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Go build output
+/bin/
+
+# Env
+/.env
+/.env.*
+/.env.local
+/.env.development.local
+/.env.test.local
+/.env.production.local
+
+# Other
+.idea/
+.vscode/
+.DS_Store
+/data
