@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+
+  user-service:
+    build:
+      context: ./
+      dockerfile: ./cmd/user/Dockerfile
+    ports:
+      - "9001:9001"
+    image: user-service:lastest
+    restart: always
+
+  conversation-service:
+    build:
+      context: ./
+      dockerfile: ./cmd/conversation/Dockerfile
+    ports:
+      - "9002:9002"
+    image: conversation-service:lastest
+    restart: always
+
+  message-service:
+    build:
+      context: ./
+      dockerfile: ./cmd/message/Dockerfile
+    ports:
+      - "9003:9003"
+    image: message-service:lastest
+    restart: always
+
+volumes:
+  mongodb_data:
+
