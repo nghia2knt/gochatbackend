@@ -8,41 +8,41 @@ services:
     volumes:
       - mongodb_data:/data/db
 
-  gochat-backend:
+  user-service:
     build:
       context: ./
-      dockerfile: ./Dockerfile
+      dockerfile: ./cmd/user/Dockerfile
     ports:
       - "9001:9001"
-    image: gochat-backend:lastest
+    image: user-service:lastest
     restart: always
 
-  # user-service:
-  #   build:
-  #     context: ./
-  #     dockerfile: ./cmd/user/Dockerfile
-  #   ports:
-  #     - "9001:9001"
-  #   image: user-service:lastest
-  #   restart: always
+  conversation-service:
+    build:
+      context: ./
+      dockerfile: ./cmd/conversation/Dockerfile
+    ports:
+      - "9002:9002"
+    image: conversation-service:lastest
+    restart: always
 
-  # conversation-service:
-  #   build:
-  #     context: ./
-  #     dockerfile: ./cmd/conversation/Dockerfile
-  #   ports:
-  #     - "9002:9002"
-  #   image: conversation-service:lastest
-  #   restart: always
+  message-service:
+    build:
+      context: ./
+      dockerfile: ./cmd/message/Dockerfile
+    ports:
+      - "9003:9003"
+    image: message-service:lastest
+    restart: always
 
-  # message-service:
-  #   build:
-  #     context: ./
-  #     dockerfile: ./cmd/message/Dockerfile
-  #   ports:
-  #     - "9003:9003"
-  #   image: message-service:lastest
-  #   restart: always
+  public-service:
+    build:
+      context: ./
+      dockerfile: ./cmd/public/Dockerfile
+    ports:
+      - "9010:9010"
+    image: public-service:lastest
+    restart: always
 
 volumes:
   mongodb_data:

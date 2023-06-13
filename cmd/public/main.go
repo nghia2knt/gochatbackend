@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	DATABASE_URI  = "mongodb://localhost:27017"
+	DATABASE_URI  = "mongodb://host.docker.internal:27017"
 	DATABASE_NAME = "test"
 )
 
